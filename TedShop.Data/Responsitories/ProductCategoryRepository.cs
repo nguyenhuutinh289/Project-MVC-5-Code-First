@@ -3,16 +3,17 @@ using System.Linq;
 using TedShop.Data.Infrastructure;
 using TeduShop.Model.Models;
 
-namespace TedShop.Data.Responsitories
+namespace TeduShop.Data.Repositories
 {
-    public interface IProductCategoryResponsitory
+    public interface IProductCategoryRepository : IRepository<ProductCategory>
     {
         IEnumerable<ProductCategory> GetByAlias(string alias);
     }
 
-    public class ProductCategoryResponsitory : RepositoryBase<ProductCategory>, IProductCategoryResponsitory
+    public class ProductCategoryRepository : RepositoryBase<ProductCategory>, IProductCategoryRepository
     {
-        public ProductCategoryResponsitory(IDbFactory dbFactory) : base(dbFactory)
+        public ProductCategoryRepository(IDbFactory dbFactory)
+            : base(dbFactory)
         {
         }
 
