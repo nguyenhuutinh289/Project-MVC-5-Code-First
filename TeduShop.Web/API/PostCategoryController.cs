@@ -7,7 +7,7 @@ using TeduShop.Web.Infrastructure.Core;
 
 namespace TeduShop.Web.API
 {
-    [RoutePrefix("api/postCategory")]
+    [RoutePrefix("api/postcategory")]
     public class PostCategoryController : ApiControllerBase
     {
         private IPostCategoryService _postCategoryService;
@@ -21,16 +21,9 @@ namespace TeduShop.Web.API
         {
             return CreateHttpRespons(request, () =>
             {
-                HttpResponseMessage response = null;
-                if (ModelState.IsValid)
-                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-                else
-                {
-                    var listPostCate = _postCategoryService.GetAll();
-                    _postCategoryService.Save();
-
-                    response = request.CreateResponse(HttpStatusCode.OK, listPostCate);
-                }
+                var listPostCate = _postCategoryService.GetAll();
+                _postCategoryService.Save();
+                HttpResponseMessage response = request.CreateResponse(HttpStatusCode.OK, listPostCate);
                 return response;
             });
         }
@@ -80,7 +73,7 @@ namespace TeduShop.Web.API
                     request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
                 else
                 {
-                     _postCategoryService.Delete(id);
+                    _postCategoryService.Delete(id);
                     _postCategoryService.Save();
 
                     response = request.CreateResponse(HttpStatusCode.OK);
