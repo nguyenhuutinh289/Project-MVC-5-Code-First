@@ -51,6 +51,7 @@
     <Compile Include="Abtract\IAuditable.cs" />
     <Compile Include="Abtract\ISeoable.cs" />
     <Compile Include="Abtract\ISwitchable.cs" />
+    <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\MenuGroup.cs" />
